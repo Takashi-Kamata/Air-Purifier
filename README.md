@@ -42,6 +42,7 @@ Sensirion's SEN55 is used to measure humidity, temperature, NOx, VOCs, PM1.0, PM
 ## Embedded System
 ### Control Board - ESP32
 NodeMCU ESP32 (NZD$3) is used to broadcast sensor data, host web interface to remotely control fan speed, and generate PWM for the motor. 
+It connects to WiFi on startup and start collecting sensor data after an initialisation. All the sensor data are collected on InfluxDB which I host on my home server then pulled to Home Assistance for automations.
 
 ## Hardware
 ### PCB
