@@ -2,6 +2,13 @@
 
 Welcome to the DIY Air Purifier project! Here, I'm sharing my journey of making an affordable air purifier from scratch. I couldn't find budget-friendly options, so I decided to create my own.
 
+Final result:
+
+
+<img src="https://github.com/Takashi-Kamata/air_purifier/blob/main/airpurifier.png" width="300" />
+<img src="https://github.com/Takashi-Kamata/air_purifier/blob/main/pmdata.png" />
+<img src="https://github.com/Takashi-Kamata/air_purifier/blob/main/climatedata.png" />
+
 ## What's the story?
 I wanted clean air for the grow room where I'm keeping my hydroponic farm. Things got a bit plant-smelly during the summer, and I realized I needed to filter the air to remove both the particles and the smell. But the air purifiers sold in stores were way too expensive. So, I thought, 'Why not build one myself?' I realized it's just a fan and a special filter working together. Simple, right?
 
@@ -19,17 +26,17 @@ I wanted clean air for the grow room where I'm keeping my hydroponic farm. Thing
 
 ## My Approach
 * Find a suitable filter. Air purifiers are expensive but their replacement filters are cheap so I will utilise them
-* Create a fan from scratch using 3D printed parts and a brushless motor
+* Create a fan from scratch using 3D printed parts. Find a good brushless motor
 * Mount the fan to the filter
 * Develop an embedded system to control the fan speed and send air quality info to my home automation system
 * Test
 
 ## Filter
-I've decided to use Sunbeam Fresh Protect Air Purifier Filter (NZD$35)for this project! \
-It uses a 3 stage filtration system (pre-filter, True HEPA filter, and carbon filter), exactly what I need! P.S, The air purifer that uses this filter costs around NZD$300-$400.
+I've decided to use Sunbeam Fresh Protect Air Purifier Filter (NZD$35) for this project! \
+It uses a 3 stage filtration system (pre-filter, True HEPA filter, and carbon filter), exactly what I need! The air purifer that uses this filter costs around NZD$300-$400.
 
 ## Fan/Motor
-I've decided to use Nidec's [48F Series](https://www.nidec.com/en/product/search/category/B101/M102/S100/NCJ-48F-High-output-Type-A/)
+I've decided to use Nidec's [48F Series](https://www.nidec.com/en/product/search/category/B101/M102/S100/NCJ-48F-High-output-Type-A/).
 I chose this model because Xiaomi's air purifiers seems to use Nidec's 48F motors. It costed around NZD$10 from AliExpress, and it's quiet, powerful, and has variable speed control using PWM frequency.
 
 ![alt text](https://github.com/Takashi-Kamata/air_purifier/blob/main/motor.png)
@@ -42,7 +49,7 @@ Sensirion's SEN55 is used to measure humidity, temperature, NOx, VOCs, PM1.0, PM
 ## Embedded System
 ### Control Board - ESP32
 NodeMCU ESP32 (NZD$3) is used to broadcast sensor data, host web interface to remotely control fan speed, and generate PWM for the motor. 
-It connects to WiFi on startup and start collecting sensor data after an initialisation. All the sensor data are collected on InfluxDB which I host on my home server then pulled to Home Assistance for automations.
+It connects to WiFi on startup and starts collecting sensor data after an initialisation. All the sensor data are collected on InfluxDB which I host on my home server then pulled to Home Assistance for automations.
 
 ## Hardware
 ### PCB
@@ -52,7 +59,7 @@ I designed a custom PCB with an integrated buck converter to convert 24V to 5V t
 ![alt text](https://github.com/Takashi-Kamata/air_purifier/blob/main/pcb.png)
 
 ### 3D Model
-I exclusively used OnShape to design the air purifier's outer casing, fan and PCB housing. EasyEDA allows exporting of PCB parts which allowed to easily visualise the device on OnShape.
+I exclusively used OnShape to design the air purifier's outer casing, fan and PCB housing. EasyEDA allows exporting of PCB parts which allowed me to easily visualise the device on OnShape.
 
 Here is the final cross-section of my air purifier. It will sit on top a filter.
 
@@ -63,7 +70,7 @@ I used SUNLU's [Marble PLA](https://www.sunlu.com/products/pla-marble-1-75mm-fil
 
 ## What's Next?
 ### FreeRTOS
-Since this project went through rapid-prototyping, I coded the ESP32 on Arduino, resulting in an inefficient program. It made everything move fast but the code can be optimised better. I will transfer the codebase to PlatformIO and use FreeRTOS for more reliable, fast and efficient program in the future.
+Since this project went through rapid-prototyping, I coded the ESP32 on Arduino, resulting in an inefficient program. It made the project move fast but the code can be optimised better. I will transfer the codebase to PlatformIO and use FreeRTOS for more reliable, fast and efficient embedded system in the future.
 
 
 
