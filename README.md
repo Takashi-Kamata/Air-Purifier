@@ -68,9 +68,8 @@ Here is the final cross-section of my air purifier. It will sit on top a filter.
 #### 3D Printer
 I used SUNLU's [Marble PLA](https://www.sunlu.com/products/pla-marble-1-75mm-filament-1kg-2-2lbs-fit-most-of-fdm-3d-printer?variant=33472258539606) filament on Ender 3 S1 Pro to print all 3D printed parts. 
 
-
 ## Final Cost
-NZD$103
+NZD$103, however the cost is halved if I decided to use cheaper or no air quality sensor. I needed a solid air quality sensor to measure performance of the air purifier.
 
 ## What's Next?
 ### FreeRTOS
