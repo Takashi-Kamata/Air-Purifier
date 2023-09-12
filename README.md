@@ -36,7 +36,7 @@ It uses a 3 stage filtration system (pre-filter, True HEPA filter, and carbon fi
 
 ## Fan/Motor
 I've decided to use Nidec's [48F Series](https://www.nidec.com/en/product/search/category/B101/M102/S100/NCJ-48F-High-output-Type-A/).
-I chose this model because Xiaomi's air purifiers seems to use Nidec's 48F motors. It costed around NZD$10 from AliExpress (probably fake), but so far it's running very quietly and producing a good torque to push the air.
+I chose this model because Xiaomi's air purifiers seems to use Nidec's 48F motors. It costed around NZD$10 from AliExpress (probably fake), but so far it's running very quietly and producing a good torque to push the air. Measured peak power consumption was around 80W.
 
 ![alt text](https://github.com/Takashi-Kamata/air_purifier/blob/main/motor.png)
 
