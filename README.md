@@ -26,10 +26,9 @@ I wanted clean air for the grow room where I'm keeping my hydroponic farm. Thing
 
 ## My Approach
 * Find a suitable filter. Air purifiers are expensive but their replacement filters are cheap so I will utilise them
-* Create a fan from scratch using 3D printed parts. Find a good brushless motor
-* Mount the fan to the filter
-* Develop an embedded system to control the fan speed and send air quality info to my home automation system
-* Test
+* Create a fan from scratch using 3D printed parts. Find and buy a good brushless motor.
+* Make a case to mount the fan to the filter
+* Develop an embedded system to control the fan speed and broadcast air quality info to my home automation system
 
 ## Filter
 I've decided to use Sunbeam Fresh Protect Air Purifier Filter (NZD$35) for this project! \
@@ -37,7 +36,7 @@ It uses a 3 stage filtration system (pre-filter, True HEPA filter, and carbon fi
 
 ## Fan/Motor
 I've decided to use Nidec's [48F Series](https://www.nidec.com/en/product/search/category/B101/M102/S100/NCJ-48F-High-output-Type-A/).
-I chose this model because Xiaomi's air purifiers seems to use Nidec's 48F motors. It costed around NZD$10 from AliExpress, and it's quiet, powerful, and has variable speed control using PWM frequency.
+I chose this model because Xiaomi's air purifiers seems to use Nidec's 48F motors. It costed around NZD$10 from AliExpress (probably fake), but so far it's running very quietly and producing a good torque to push the air.
 
 ![alt text](https://github.com/Takashi-Kamata/air_purifier/blob/main/motor.png)
 
@@ -54,7 +53,7 @@ It connects to WiFi on startup and starts collecting sensor data after an initia
 ## Hardware
 ### PCB
 I wanted a single cable solution where I only need to plug a power cable. However, the motor is rated for 24V and ESP32 and SEN55 runs on 5V. 
-I designed a custom PCB with an integrated buck converter to convert 24V to 5V to power everything. Also, I included a logic shifter to produce a required PWM signal at 5V instead of 3.3V. Designed on EasyEDA STD, with electrical components from LCSC. Evertying came down to roughly NZD$15 including the PCB and the components.
+I designed a custom PCB with an integrated buck converter to convert 24V to 5V to power everything (LM2596). Also, I included a logic shifter to produce a required PWM signal at 5V instead of 3.3V. Designed on EasyEDA STD, with electrical components from LCSC. Evertying came down to roughly NZD$15 including the PCB and the components.
 
 ![alt text](https://github.com/Takashi-Kamata/air_purifier/blob/main/pcb.png)
 
