@@ -1,6 +1,6 @@
 # Air Purifer
 
-Welcome to the DIY Air Purifier project! Here, I'm sharing my journey of making an affordable air purifier from scratch. I couldn't find budget-friendly options, so I decided to create my own.
+Welcome to my DIY Air Purifier project! Here, I'm sharing my journey of making an affordable air purifier from scratch. I couldn't find budget-friendly options, so I decided to create my own.
 
 Final result:
 
@@ -10,7 +10,7 @@ Final result:
 <img src="https://github.com/Takashi-Kamata/air_purifier/blob/main/climatedata.png" />
 
 ## What's the story?
-I wanted clean air for the grow room where I'm keeping my hydroponic farm. Things got a bit plant-smelly during the summer, and I realized I needed to filter the air to remove both the particles and the smell. But the air purifiers sold in stores were way too expensive. So, I thought, 'Why not build one myself?' I realized it's just a fan and a special filter working together. Simple, right?
+I wanted clean air for the grow room where I'm keeping my hydroponic farm. Things got a bit plant-smelly during the summer, and I realized I needed to filter the air to remove both the dust and the smell. But the air purifiers sold in stores were way too expensive. So, I thought, 'Why not build one myself?' I realized it's just a fan and a special filter working together. Simple, right?
 
 ## My Goals
 * Upskill as an Engineer
@@ -22,21 +22,21 @@ I wanted clean air for the grow room where I'm keeping my hydroponic farm. Thing
 ## How do air purifiers work?
 * Push or Pull polluted air using a fan 
 * Force the air through a filter, idealy HEPA (for dust) & Activated Carbon (for smell) filters
-* Circulate air in the room so it doesn't keep filtering clean air
+* Circulate the air in the room 
 
 ## My Approach
 * Find a suitable filter. Air purifiers are expensive but their replacement filters are cheap so I will utilise them
-* Create a fan from scratch using 3D printed parts. Find and buy a good brushless motor.
+* Create a fan from scratch using 3D printed parts. Find and buy a good brushless motor
 * Make a case to mount the fan to the filter
 * Develop an embedded system to control the fan speed and broadcast air quality info to my home automation system
 
 ## Filter
 I've decided to use Sunbeam Fresh Protect Air Purifier Filter (NZD$35) for this project! \
-It uses a 3 stage filtration system (pre-filter, True HEPA filter, and carbon filter), exactly what I need! The air purifer that uses this filter costs around NZD$300-$400.
+It uses a 3 stage filtration system (Pre-Filter Mesh, True HEPA filter, and Carbon Filter). The air purifer that uses this filter costs around NZD$300-$400.
 
 ## Fan/Motor
 I've decided to use Nidec's [48F Series](https://www.nidec.com/en/product/search/category/B101/M102/S100/NCJ-48F-High-output-Type-A/).
-I chose this model because Xiaomi's air purifiers seems to use Nidec's 48F motors. It costed around NZD$10 from AliExpress (probably fake), but so far it's running very quietly and producing a good torque to push the air. Measured peak power consumption was around 80W.
+I chose this model because Xiaomi's air purifiers seem to use Nidec's 48F series. It costed around NZD$10 from AliExpress (probably fake), but so far it's running very quietly and producing a good torque to push the air. Measured peak power consumption was around 80W.
 
 ![alt text](https://github.com/Takashi-Kamata/air_purifier/blob/main/motor.png)
 
@@ -53,12 +53,12 @@ It connects to WiFi on startup and starts collecting sensor data after an initia
 ## Hardware
 ### PCB
 I wanted a single cable solution where I only need to plug a power cable. However, the motor is rated for 24V and ESP32 and SEN55 runs on 5V. 
-I designed a custom PCB with an integrated buck converter to convert 24V to 5V to power everything (LM2596). Also, I included a logic shifter to produce a required PWM signal at 5V instead of 3.3V. Designed on EasyEDA STD, with electrical components from LCSC. Evertying came down to roughly NZD$15 including the PCB and the components.
+I designed a custom PCB with an integrated buck converter to convert 24V to 5V to power everything (LM2596). Also, I included a logic shifter to produce PWM signal at 5V instead of 3.3V. Designed on EasyEDA STD, with electrical components from LCSC. Everything came down to roughly NZD$15 including the PCB and the components.
 
 ![alt text](https://github.com/Takashi-Kamata/air_purifier/blob/main/pcb.png)
 
 ### 3D Model
-I exclusively used OnShape to design the air purifier's outer casing, fan and PCB housing. EasyEDA allows exporting of PCB parts which allowed me to easily visualise the device on OnShape.
+I exclusively used OnShape to design the air purifier's outer casing, fan and PCB housing. EasyEDA allows exporting PCB parts which allowed me to visualise the device on OnShape.
 
 Here is the final cross-section of my air purifier. It will sit on top a filter.
 
@@ -72,7 +72,7 @@ NZD$103, however the cost is halved if I didn't need the air quality sensor. I n
 
 ## What's Next?
 ### FreeRTOS
-Since this project went through rapid-prototyping, I coded the ESP32 on Arduino, resulting in an inefficient program. It made the project move fast but the code can be optimised better. I will transfer the codebase to PlatformIO and use FreeRTOS for more reliable, fast and efficient embedded system in the future.
+Since this project went through rapid-prototyping, I coded the ESP32 on Arduino. It made the project move fast but the code can be optimised better/safer. I will transfer the codebase to PlatformIO and use FreeRTOS for more reliable, fast and efficient embedded system in the future.
 
 
 
